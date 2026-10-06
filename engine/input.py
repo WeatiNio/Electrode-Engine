@@ -32,7 +32,7 @@ KEY_MAP = {
     "left": pg.K_LEFT,
     "right": pg.K_RIGHT,
     "space": pg.K_SPACE,
-    "enter": pg.K_RETURN,
+    "return": pg.K_RETURN,
     "escape": pg.K_ESCAPE,
     "l_shift": pg.K_LSHIFT,
     "l_ctrl": pg.K_LCTRL,
@@ -43,6 +43,23 @@ KEY_MAP = {
 class Input:
     def __init__(self):
         self.keys = None
+        self.previous_keys = None
+
+    def update_keys(self):
+        self.previous_keys = self.keys
+        self.keys = pg.key.get_pressed()
 
     def is_key_pressed(self, key):
         return self.keys[KEY_MAP[key]]
+
+    def input_began(self, key):
+        if not self.previous_keys: return False
+        if self.keys[KEY_MAP[key]] and not self.previous_keys[KEY_MAP[key]]:
+            return True
+        else: return False
+
+    def input_ended(self, key):
+        if not self.previous_keys: return False
+        if self.previous_keys[KEY_MAP[key]] and not self.keys[KEY_MAP[key]]:
+            return True
+        else: return False
