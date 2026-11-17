@@ -6,7 +6,7 @@ A basic game engine written in Python made for a school project
 
 - 2D game object system
 - Input system
-- IUD cylce - (Input, Update, Draw)
+- IUD cycle - (Input, Update, Draw)
 
 ## Requirements
 
