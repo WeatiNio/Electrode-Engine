@@ -2,7 +2,6 @@ import pygame as pg
 
 def add_game_object(scene):
     object = scene.create_object()
-    print(object)
 
 def get_buttons():
     return {
