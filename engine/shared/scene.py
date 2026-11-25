@@ -1,5 +1,4 @@
 import random
-import time
 
 from engine.shared.gameobject import GameObject
 
